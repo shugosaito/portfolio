@@ -1,0 +1,614 @@
+
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+
+
+
+/* top-header section */
+
+.top-header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #131313;
+}
+
+.top-header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-header::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+  background: linear-gradient(to top, #131313, transparent);
+}
+
+.top-header::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: #131313;
+  mix-blend-mode: color;
+}
+
+#txt {
+  position: relative;
+  color: #fff;
+  font-size: 7rem;
+  z-index: 1;
+}
+
+
+/* skill section */
+
+.skills {
+  min-height: 100vh;
+  background: #131313;
+  position: relative;
+}
+
+.sec-ttl {
+  color: #fff;
+  text-align: center;
+  font-size: 6rem;
+  padding-top: 1.25rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container .card {
+  position: relative;
+  top: 7.5rem;
+  width: 20rem;
+  height: 32rem;  /*max-heightで調整 */
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.container .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: 1.0s ease-in-out;
+}
+
+.container .card:hover::before {
+  clip-path: circle(15.6rem at 100% -50%);
+}
+
+.container .card::after {
+  content: 'HTML/CSS';
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 12rem;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.255);
+}
+
+.container .card.js::after {
+  content: 'JAVASCRIPT';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  font-size: 12rem;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.255);
+}
+
+.container .card.responsive::after {
+  content: 'RESPONSIVE';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  font-size: 12rem;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.255);
+}
+
+.container .card .imgBX {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 100%;
+  height: 14rem;
+  transition: .5s;
+  text-align: center;
+}
+
+.container .card .imgBX p {
+  font-size: 1.5rem;
+  color: #232323;
+}
+
+.container .card:hover .imgBX {
+  top: -15%;
+  transform: translateY(0%);
+}
+
+.container .card .contentBx {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6rem;
+  text-align: center;
+  transition: 1.0s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.container .card:hover .contentBx {
+  height: 26rem;
+  opacity: 1;
+}
+
+.container .card .text {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  height: 3rem;
+  margin-left: 1.6rem;
+  transition: 1s;
+  transition-delay: 1s;
+  z-index: 10;
+  opacity: 0;
+  font-size: 1.2rem;
+}
+
+.container .card .text p {
+  line-height: 2rem;
+}
+
+.container .card:hover .text {
+  height: 19rem;
+  opacity: 1;
+}
+
+.container .card .contentBx h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 1.25rem;
+  transition:.5s;
+}
+
+.container .card .contentBx h3 {
+  color: #fff;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: .6rem;
+}
+
+.level span {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  display: inline-block;
+  color: gold;
+  transition: .5s;
+  opacity: 0;
+}
+
+.card:hover .level span {
+  opacity: 1;
+}
+
+
+/* menu section */
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #131313;
+  overflow: hidden;
+}
+
+.menu ul {
+  position: relative;
+  display: flex;
+}
+
+.menu ul li {
+  list-style: none;
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.menu ul li::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  color: #fff;
+  font-size: 10rem;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0;
+  letter-spacing: 20px;
+  transition: .5s;
+  white-space: nowrap;
+}
+
+.menu ul li:hover::before {
+  opacity: .05;
+  letter-spacing: 0;
+}
+
+.menu ul a {
+  position: relative;
+  display: inline-block;
+  padding: .9rem 1.9rem;
+  text-decoration: none;
+  background: #2196f3;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  overflow: hidden;
+  transition: .5s;
+  z-index: 1;
+}
+
+.menu ul:hover a {
+  opacity: 0;
+}
+
+.menu ul a:hover {
+  transform: scale(1.4);
+  z-index: 1000;
+  background: #ff3f81;
+  opacity: 1;
+}
+
+.menu ul a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: skew(35deg);
+  transition: 0s;
+}
+
+.menu ul a:hover:before {
+  left: calc(100% + 100px);
+  transition: .5s;
+  transition-delay: .2s;
+}
+
+
+/* about section */
+
+.about {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+}
+
+.about h2 {
+font-size: 6rem;
+cursor: pointer;
+color: #555;
+width: 240px;
+}
+
+.about h2 span {
+  transition: .5s;
+  opacity: 0;
+}
+
+.about h2:hover span {
+  margin-left: 40px;
+  opacity: 1;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff,
+  0 0 100px;
+}
+
+.myself {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.myself img {
+  width: 35%;
+  height: 28rem;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.myself .desc {
+  width: 58%;
+  color: #fff;
+}
+
+.myself .desc h3 {
+  font-size: 2.25rem;
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+
+.myself .desc p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+
+/* wavy section */
+
+.portfolio {
+  min-height: 100vh;
+  background: #000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.wavy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wavy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-size: 2rem;
+  margin-right: 10px;
+  animation: animate 1s  ease-in-out infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes animate {
+  0%
+  {
+    transform: translateY(0px);
+  }
+  20%
+  {
+    transform: translateY(-20px);
+  }
+  40%, 100%
+  {
+    transform: translateY(0px);
+  }
+}
+
+
+/* contact section */
+
+.contact-container {
+  min-height: 100vh;
+  background: #131313;  
+  position: relative;
+}
+
+.contact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contact ul {
+  position: relative;
+  display: flex;
+}
+
+.contact ul li {
+  position: relative;
+  list-style: none;
+}
+
+.contact ul li a {
+   position: relative;  /*::beforeでabsolute使うため */
+  width: 6rem;
+  height: 6rem;
+  display: flex;  /*width&heightを有効化させている */
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 2.25rem;
+  border-radius: 50%;
+  /* color: #e2e2e2; */
+  box-shadow: inset -2px -2px 7px rgba(0, 0, 0, 0.6);
+  transition: .4s;
+}
+
+.contact ul li a:hover {
+  /* color: #999; */
+  transform: translateY(-24px);
+  box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.8);
+}
+
+.contact ul li a .fa {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.contact ul li a::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+}
+
+.contact ul li:nth-child(1) a::before {
+  background: #1877f2;
+}
+.contact ul li:nth-child(2) a::before {
+  /* background: #d6249f; */
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+.contact ul li:nth-child(3) a::before {
+  background: #1da1f2;
+}
+.contact ul li:nth-child(4) a::before {
+  background:	#c71610;
+}
+
+/* footer section */
+
+footer {
+  background: #000;
+  color: #333;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+
+
+
+
+
+/* responsive design */
+
+@media (max-width: 1200px) and (min-width : 1025px) {
+  #txt {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  html {
+  font-size: 80%;
+}
+}
+
+@media (max-width: 960px) and (min-width: 841px) {
+   #txt {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 840px) and (min-width: 701px) {
+   #txt {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 700px) and (min-width: 561px) {
+   #txt {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 560px)  {
+   #txt {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+      html {
+  font-size: 50%;
+}
+}
+
+@media (max-width: 700px) {
+  /* about section */
+  .myself {
+    flex-direction: column;
+    justify-content: center;
+}
+
+  .myself img {
+    width: 50%;
+    height: 30rem;
+  }
+
+  .myself .desc {
+    width: 70%;
+    text-align: center;
+  }
+
+  /* skill section */
+  .container {
+  flex-direction: column;
+}
+  .container .card {
+    position: relative;
+    top: 7.5rem;
+    width: 20rem;
+    height: 32rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+
